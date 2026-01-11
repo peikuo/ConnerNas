@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CornerNAS</string>
+    <string name="service_notification_title">CornerNAS</string>
+    <string name="service_notification_body">Serving files from your room corner</string>
+</resources>

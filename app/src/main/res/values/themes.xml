@@ -1,0 +1,7 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.CornerNAS" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#1B5E20</item>
+        <item name="colorPrimaryDark">#0D3D13</item>
+        <item name="colorAccent">#4CAF50</item>
+    </style>
+</resources>
