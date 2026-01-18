@@ -33,6 +33,13 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+
+    packaging {
+        resources {
+            excludes += "META-INF/INDEX.LIST"
+            excludes += "META-INF/io.netty.versions.properties"
+        }
+    }
 }
 
 dependencies {
@@ -40,7 +47,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.activity:activity-ktx:1.9.1")
     implementation("androidx.documentfile:documentfile:1.0.1")
+    implementation("com.google.android.material:material:1.12.0")
 
     implementation("io.ktor:ktor-server-core-jvm:2.3.12")
-    implementation("io.ktor:ktor-server-netty-jvm:2.3.12")
+    implementation("io.ktor:ktor-server-cio-jvm:2.3.12")
 }

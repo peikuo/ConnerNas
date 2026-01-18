@@ -4,6 +4,7 @@ import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
+import io.ktor.http.ContentType
 
 class SafFileManager(
     private val context: Context,
@@ -65,5 +66,14 @@ class SafFileManager(
             existing.delete()
         }
         return parent.createFile(mimeType, name)
+    }
+
+    fun resolveMimeType(file: DocumentFile): ContentType? {
+        val resolved = resolver.getType(file.uri) ?: return null
+        return try {
+            ContentType.parse(resolved)
+        } catch (_: IllegalArgumentException) {
+            null
+        }
     }
 }
