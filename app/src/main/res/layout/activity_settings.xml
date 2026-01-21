@@ -2,52 +2,132 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/md_theme_background">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar_settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorSurface"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:title="@string/settings_title" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/language_label"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnBackground" />
+
+            <RadioGroup
+                android:id="@+id/radio_language_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radio_language_system"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/language_system"
+                    android:textColor="?attr/colorOnBackground" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radio_language_en"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/language_english"
+                    android:textColor="?attr/colorOnBackground" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radio_language_zh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/language_chinese"
+                    android:textColor="?attr/colorOnBackground" />
+            </RadioGroup>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switch_developer_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/developer_mode"
+                android:textColor="?attr/colorOnBackground" />
+
+            <LinearLayout
+                android:id="@+id/developer_tools_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_test_server"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_server" />
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/logs_title"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
+                android:textColor="?attr/colorOnBackground" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_view_logs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/view_logs" />
+        </LinearLayout>
+    </ScrollView>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_marginBottom="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="?attr/colorOutline" />
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/language_label"
-            android:textAppearance="?attr/textAppearanceTitleMedium" />
+            android:layout_marginHorizontal="12dp"
+            android:text="@string/settings_footer"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="?attr/colorOnSurfaceVariant" />
 
-        <RadioGroup
-            android:id="@+id/radio_language_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/radio_language_system"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/language_system" />
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/radio_language_en"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/language_english" />
-
-            <com.google.android.material.radiobutton.MaterialRadioButton
-                android:id="@+id/radio_language_zh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/language_chinese" />
-        </RadioGroup>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="?attr/colorOutline" />
     </LinearLayout>
 </LinearLayout>

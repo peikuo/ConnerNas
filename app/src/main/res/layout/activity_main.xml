@@ -11,10 +11,49 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorSurface"
         android:elevation="0dp"
-        android:title="@string/app_name"
-        android:titleTextAppearance="?attr/textAppearanceTitleMedium"
-        app:subtitleTextAppearance="?attr/textAppearanceBodySmall"
-        app:titleCentered="true" />
+        android:title=""
+        app:titleCentered="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="56dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/text_device_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textColor="?attr/colorOnSurface" />
+
+                <ImageButton
+                    android:id="@+id/button_edit_device_name"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="6dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/edit_device_name"
+                    android:src="@android:drawable/ic_menu_edit"
+                    android:tint="?attr/colorOnSurface" />
+            </LinearLayout>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/text_toolbar_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceLabelLarge"
+                android:textColor="?attr/colorOnSurfaceVariant" />
+        </LinearLayout>
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,7 +70,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="24dp"
+                app:cardCornerRadius="20dp"
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
@@ -62,12 +101,27 @@
                         android:text="@string/ip_unknown"
                         android:textAppearance="?attr/textAppearanceTitleMedium" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/button_test_server"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="@string/test_server" />
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/button_copy_url"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/copy_url" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/button_share_url"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_weight="1"
+                            android:text="@string/share_url" />
+                    </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -99,6 +153,14 @@
                             android:layout_weight="1"
                             android:text="@string/shared_folders_title"
                             android:textAppearance="?attr/textAppearanceTitleMedium" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@android:drawable/ic_media_next"
+                            android:drawablePadding="4dp"
+                            android:text="@string/manage"
+                            android:textAppearance="?attr/textAppearanceBodySmall" />
 
                     </LinearLayout>
 
@@ -180,20 +242,18 @@
         android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_share_all"
+            android:id="@+id/button_all_shares"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:text="@string/share_all"
-            style="?attr/materialButtonOutlinedStyle" />
+            android:text="@string/share_all" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_service_toggle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
             android:layout_weight="1"
-            android:layout_marginStart="8dp"
             android:text="@string/stop_service"
             app:backgroundTint="?attr/colorError"
             android:textColor="?attr/colorOnError" />

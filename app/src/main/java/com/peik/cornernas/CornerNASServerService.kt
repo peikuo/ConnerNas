@@ -9,10 +9,13 @@ import android.content.Intent
 import android.net.nsd.NsdManager
 import android.net.nsd.NsdServiceInfo
 import android.os.Build
+import android.os.Handler
 import android.os.IBinder
-import android.util.Log
+import android.os.Looper
+import android.provider.Settings
 import androidx.core.app.NotificationCompat
 import androidx.documentfile.provider.DocumentFile
+import com.peik.cornernas.util.AppLog
 import com.peik.cornernas.server.KtorServer
 import com.peik.cornernas.storage.SafFileManager
 import com.peik.cornernas.storage.SharedFolder
@@ -25,6 +28,14 @@ class CornerNASServerService : Service() {
     private var nsdManager: NsdManager? = null
     private var registrationListener: NsdManager.RegistrationListener? = null
     private var serverPort: Int = 0
+    private val keepAliveHandler = Handler(Looper.getMainLooper())
+    private var keepAliveStarted = false
+    private val keepAliveRunnable = object : Runnable {
+        override fun run() {
+            refreshNsdRegistration()
+            keepAliveHandler.postDelayed(this, KEEP_ALIVE_INTERVAL_MS)
+        }
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -36,7 +47,7 @@ class CornerNASServerService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         if (intent?.action == ACTION_STOP_SERVICE) {
-            Log.i(logTag, "Stop action received, shutting down service")
+            AppLog.i(logTag, "Stop action received, shutting down service")
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 stopForeground(STOP_FOREGROUND_REMOVE)
             } else {
@@ -50,16 +61,19 @@ class CornerNASServerService : Service() {
             serverPort = pickRandomPort()
             saveServerPort(serverPort)
         }
-        Log.i(logTag, "Starting server on port=$serverPort")
+        AppLog.i(logTag, "Starting server on port=$serverPort")
         server?.start(serverPort)
         registerService()
+        startKeepAlive()
         return START_STICKY
     }
 
     override fun onDestroy() {
+        stopKeepAlive()
         unregisterService()
         server?.stop()
         server = null
+        saveServerPort(0)
         super.onDestroy()
     }
 
@@ -81,19 +95,19 @@ class CornerNASServerService : Service() {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
         return NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
-        .setContentTitle(getString(R.string.service_notification_title))
-        .setContentText(getString(R.string.service_notification_body))
-        .setSmallIcon(android.R.drawable.stat_sys_upload_done)
-        .setContentIntent(openIntent)
-        .setCategory(NotificationCompat.CATEGORY_SERVICE)
-        .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-        .setPriority(NotificationCompat.PRIORITY_LOW)
-        .setOnlyAlertOnce(true)
-        .setShowWhen(false)
-        .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
-        .addAction(android.R.drawable.ic_menu_close_clear_cancel, getString(R.string.stop_service), stopIntent)
-        .setOngoing(true)
-        .build()
+            .setContentTitle(getString(R.string.service_notification_title))
+            .setContentText(getString(R.string.service_notification_body))
+            .setSmallIcon(android.R.drawable.stat_sys_upload_done)
+            .setContentIntent(openIntent)
+            .addAction(0, getString(R.string.stop_service), stopIntent)
+            .setCategory(NotificationCompat.CATEGORY_SERVICE)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
+            .setOnlyAlertOnce(true)
+            .setShowWhen(false)
+            .setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
+            .setOngoing(true)
+            .build()
     }
 
     private fun createNotificationChannel() {
@@ -123,26 +137,61 @@ class CornerNASServerService : Service() {
         val manager = nsdManager ?: return
         if (serverPort == 0) return
         val serviceInfo = NsdServiceInfo().apply {
-            serviceName = "${getString(R.string.app_name)}-${Build.MODEL}"
+            serviceName = deviceDisplayName()
             serviceType = "_cornernas._tcp."
             port = serverPort
         }
         val listener = object : NsdManager.RegistrationListener {
             override fun onServiceRegistered(serviceInfo: NsdServiceInfo) {
-                Log.i(logTag, "NSD registered: ${serviceInfo.serviceName}:${serviceInfo.port}")
+                AppLog.i(logTag, "NSD registered: ${serviceInfo.serviceName}:${serviceInfo.port}")
             }
             override fun onRegistrationFailed(serviceInfo: NsdServiceInfo, errorCode: Int) {
-                Log.w(logTag, "NSD register failed: code=$errorCode")
+                AppLog.w(logTag, "NSD register failed: code=$errorCode")
             }
             override fun onServiceUnregistered(serviceInfo: NsdServiceInfo) {
-                Log.i(logTag, "NSD unregistered")
+                AppLog.i(logTag, "NSD unregistered")
             }
             override fun onUnregistrationFailed(serviceInfo: NsdServiceInfo, errorCode: Int) {
-                Log.w(logTag, "NSD unregister failed: code=$errorCode")
+                AppLog.w(logTag, "NSD unregister failed: code=$errorCode")
             }
         }
         registrationListener = listener
         manager.registerService(serviceInfo, NsdManager.PROTOCOL_DNS_SD, listener)
+    }
+
+    private fun refreshNsdRegistration() {
+        if (serverPort == 0) return
+        if (nsdManager == null) return
+        try {
+            unregisterService()
+            registerService()
+        } catch (e: Exception) {
+            AppLog.w(logTag, "NSD refresh failed", e)
+        }
+    }
+
+    private fun startKeepAlive() {
+        if (keepAliveStarted) return
+        keepAliveStarted = true
+        keepAliveHandler.postDelayed(keepAliveRunnable, KEEP_ALIVE_INTERVAL_MS)
+    }
+
+    private fun stopKeepAlive() {
+        if (!keepAliveStarted) return
+        keepAliveHandler.removeCallbacks(keepAliveRunnable)
+        keepAliveStarted = false
+    }
+
+    private fun deviceDisplayName(): String {
+        val prefs = getSharedPreferences(MainActivity.PREFS_NAME, Context.MODE_PRIVATE)
+        val stored = prefs.getString(MainActivity.KEY_DEVICE_NAME, null)
+        if (!stored.isNullOrBlank()) return stored
+        val name = try {
+            Settings.Global.getString(contentResolver, Settings.Global.DEVICE_NAME)
+        } catch (_: Exception) {
+            null
+        }
+        return name?.takeIf { it.isNotBlank() } ?: Build.MODEL
     }
 
     private fun unregisterService() {
@@ -181,5 +230,6 @@ class CornerNASServerService : Service() {
         private const val NOTIFICATION_CHANNEL_ID = "cornernas_channel"
         private const val NOTIFICATION_ID = 1001
         private const val ACTION_STOP_SERVICE = "com.peik.cornernas.action.STOP_SERVICE"
+        private const val KEEP_ALIVE_INTERVAL_MS = 3 * 60 * 1000L
     }
 }

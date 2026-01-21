@@ -3,6 +3,7 @@ package com.peik.cornernas.server
 import android.content.Context
 import com.peik.cornernas.R
 import com.peik.cornernas.storage.SafFileManager
+import com.peik.cornernas.storage.PathResolver
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.HttpHeaders
@@ -22,11 +23,59 @@ import io.ktor.utils.io.core.readAvailable
 import kotlin.math.min
 
 fun Route.configureFileRoutes(context: Context, safFileManager: SafFileManager) {
+    val pathResolver = PathResolver()
     route("") {
         get("/list") {
             val path = call.request.queryParameters["path"]
             val (normalized, entries) = safFileManager.list(path)
             call.respondText(buildListJson(normalized, entries), ContentType.Application.Json)
+        }
+        post("/mkdir") {
+            val parentPath = call.request.queryParameters["path"]
+            val name = call.request.queryParameters["name"]
+            if (parentPath.isNullOrBlank() || name.isNullOrBlank()) {
+                call.respond(HttpStatusCode.BadRequest, context.getString(R.string.error_missing_path))
+                return@post
+            }
+            val normalized = pathResolver.normalize(parentPath)
+            if (normalized == "/") {
+                call.respond(HttpStatusCode.BadRequest, context.getString(R.string.error_invalid_path))
+                return@post
+            }
+            val parent = safFileManager.resolveDocumentFile(normalized)
+            if (parent == null || !parent.isDirectory) {
+                call.respond(HttpStatusCode.NotFound, context.getString(R.string.error_target_dir_not_found))
+                return@post
+            }
+            val created = safFileManager.createDirectory(parent, name)
+            if (created == null) {
+                call.respond(HttpStatusCode.InternalServerError, context.getString(R.string.error_create_dir_failed))
+                return@post
+            }
+            call.respondText(context.getString(R.string.upload_ok), ContentType.Text.Plain, HttpStatusCode.OK)
+        }
+        post("/delete") {
+            val path = call.request.queryParameters["path"]
+            if (path.isNullOrBlank()) {
+                call.respond(HttpStatusCode.BadRequest, context.getString(R.string.error_missing_path))
+                return@post
+            }
+            val normalized = pathResolver.normalize(path)
+            if (normalized == "/") {
+                call.respond(HttpStatusCode.BadRequest, context.getString(R.string.error_invalid_path))
+                return@post
+            }
+            val file = safFileManager.resolveDocumentFile(normalized)
+            if (file == null) {
+                call.respond(HttpStatusCode.NotFound, context.getString(R.string.error_file_not_found))
+                return@post
+            }
+            val deleted = safFileManager.deleteDocument(file)
+            if (!deleted) {
+                call.respond(HttpStatusCode.InternalServerError, context.getString(R.string.error_delete_failed))
+                return@post
+            }
+            call.respondText(context.getString(R.string.upload_ok), ContentType.Text.Plain, HttpStatusCode.OK)
         }
         get("/file") {
             val path = call.request.queryParameters["path"]

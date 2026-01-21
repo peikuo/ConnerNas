@@ -16,7 +16,7 @@
         android:theme="@style/Theme.CornerNAS"
         android:supportsRtl="true">
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +24,19 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
             android:name=".SharedFoldersActivity"
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllSharesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RemoteBrowserActivity"
             android:exported="false" />
 
         <service

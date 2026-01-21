@@ -68,6 +68,19 @@ class SafFileManager(
         return parent.createFile(mimeType, name)
     }
 
+    fun createDirectory(parent: DocumentFile, name: String): DocumentFile? {
+        val existing = parent.findFile(name)
+        if (existing != null) {
+            if (existing.isDirectory) return existing
+            existing.delete()
+        }
+        return parent.createDirectory(name)
+    }
+
+    fun deleteDocument(file: DocumentFile): Boolean {
+        return file.delete()
+    }
+
     fun resolveMimeType(file: DocumentFile): ContentType? {
         val resolved = resolver.getType(file.uri) ?: return null
         return try {
