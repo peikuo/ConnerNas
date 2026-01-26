@@ -1,0 +1,9 @@
+"home_title" = "Home";
+"all_shares_title" = "All Shares";
+"settings_title" = "Settings";
+"shared_folders_title" = "Shared Folders";
+"status_title" = "Status";
+"status_running" = "Running";
+"status_stopped" = "Stopped";
+"start_service" = "Start Service";
+"stop_service" = "Stop Service";

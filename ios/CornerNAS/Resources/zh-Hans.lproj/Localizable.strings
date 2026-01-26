@@ -1,0 +1,9 @@
+"home_title" = "首页";
+"all_shares_title" = "全部共享";
+"settings_title" = "设置";
+"shared_folders_title" = "共享文件夹";
+"status_title" = "状态";
+"status_running" = "运行中";
+"status_stopped" = "已停止";
+"start_service" = "启动服务";
+"stop_service" = "停止服务";

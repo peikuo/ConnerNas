@@ -1,0 +1,2 @@
+/* Local Network */
+"NSLocalNetworkUsageDescription" = "CornerNAS uses the local network to discover and connect nearby devices.";

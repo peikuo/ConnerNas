@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDisplayName</key>
+    <string>CornerNAS</string>
+    <key>NSLocalNetworkUsageDescription</key>
+    <string>CornerNAS uses the local network to discover and connect nearby devices.</string>
+    <key>NSBonjourServices</key>
+    <array>
+        <string>_cornernas._tcp</string>
+    </array>
+</dict>
+</plist>

@@ -1,0 +1,2 @@
+/* Local Network */
+"NSLocalNetworkUsageDescription" = "CornerNAS 需要访问本地网络以发现并连接附近设备。";

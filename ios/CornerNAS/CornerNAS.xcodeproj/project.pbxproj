@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AAB3EBD82F274633000635DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAB3EBC42F274633000635DF /* InfoPlist.strings */; };
+		AAB3EBD92F274633000635DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAB3EBC72F274633000635DF /* Localizable.strings */; };
+		AAB3EBDA2F274633000635DF /* SharesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBD42F274633000635DF /* SharesView.swift */; };
+		AAB3EBDB2F274633000635DF /* DeviceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBCF2F274633000635DF /* DeviceRowView.swift */; };
+		AAB3EBDC2F274633000635DF /* SharedFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBCA2F274633000635DF /* SharedFolder.swift */; };
+		AAB3EBDD2F274633000635DF /* SharedFoldersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBD32F274633000635DF /* SharedFoldersView.swift */; };
+		AAB3EBDE2F274633000635DF /* SharedFolderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBD22F274633000635DF /* SharedFolderRowView.swift */; };
+		AAB3EBDF2F274633000635DF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBD02F274633000635DF /* HomeView.swift */; };
+		AAB3EBE02F274633000635DF /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBC92F274633000635DF /* DeviceInfo.swift */; };
+		AAB3EBE12F274633000635DF /* LocalServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBCD2F274633000635DF /* LocalServer.swift */; };
+		AAB3EBE22F274633000635DF /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBD12F274633000635DF /* SettingsView.swift */; };
+		AAB3EBE32F274633000635DF /* BonjourService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBCC2F274633000635DF /* BonjourService.swift */; };
+		AAB3EBE52F274A51000635DF /* CornerNASApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBE42F274A51000635DF /* CornerNASApp.swift */; };
+		AAB3EBE82F275DF8000635DF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBE62F275CB6000635DF /* AppState.swift */; };
+		AAB3EBEA2F27761A000635DF /* SharedFolderStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBE92F27761A000635DF /* SharedFolderStore.swift */; };
+		AAB3EBEC2F27BF87000635DF /* FolderPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBEB2F27BF87000635DF /* FolderPicker.swift */; };
+		AAB3EBEE2F27D020000635DF /* RemoteBrowserClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB3EBED2F27D020000635DF /* RemoteBrowserClient.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AAB3EBB32F2743E0000635DF /* CornerNASApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CornerNASApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAB3EBC12F274633000635DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAB3EBC22F274633000635DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AAB3EBC32F274633000635DF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		AAB3EBC52F274633000635DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AAB3EBC62F274633000635DF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		AAB3EBC92F274633000635DF /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		AAB3EBCA2F274633000635DF /* SharedFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFolder.swift; sourceTree = "<group>"; };
+		AAB3EBCC2F274633000635DF /* BonjourService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonjourService.swift; sourceTree = "<group>"; };
+		AAB3EBCD2F274633000635DF /* LocalServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalServer.swift; sourceTree = "<group>"; };
+		AAB3EBCF2F274633000635DF /* DeviceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRowView.swift; sourceTree = "<group>"; };
+		AAB3EBD02F274633000635DF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AAB3EBD12F274633000635DF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AAB3EBD22F274633000635DF /* SharedFolderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFolderRowView.swift; sourceTree = "<group>"; };
+		AAB3EBD32F274633000635DF /* SharedFoldersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFoldersView.swift; sourceTree = "<group>"; };
+		AAB3EBD42F274633000635DF /* SharesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharesView.swift; sourceTree = "<group>"; };
+		AAB3EBE42F274A51000635DF /* CornerNASApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerNASApp.swift; sourceTree = "<group>"; };
+		AAB3EBE62F275CB6000635DF /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		AAB3EBE92F27761A000635DF /* SharedFolderStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFolderStore.swift; sourceTree = "<group>"; };
+		AAB3EBEB2F27BF87000635DF /* FolderPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderPicker.swift; sourceTree = "<group>"; };
+		AAB3EBED2F27D020000635DF /* RemoteBrowserClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBrowserClient.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AAB3EBB02F2743E0000635DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AAB3EBAA2F2743E0000635DF = {
+			isa = PBXGroup;
+			children = (
+				AAB3EBC82F274633000635DF /* Resources */,
+				AAB3EBD62F274633000635DF /* Sources */,
+				AAB3EBB42F2743E0000635DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AAB3EBB42F2743E0000635DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AAB3EBB32F2743E0000635DF /* CornerNASApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AAB3EBC82F274633000635DF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AAB3EBC12F274633000635DF /* Info.plist */,
+				AAB3EBC42F274633000635DF /* InfoPlist.strings */,
+				AAB3EBC72F274633000635DF /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AAB3EBCB2F274633000635DF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AAB3EBC92F274633000635DF /* DeviceInfo.swift */,
+				AAB3EBCA2F274633000635DF /* SharedFolder.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AAB3EBCE2F274633000635DF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AAB3EBED2F27D020000635DF /* RemoteBrowserClient.swift */,
+				AAB3EBE92F27761A000635DF /* SharedFolderStore.swift */,
+				AAB3EBE62F275CB6000635DF /* AppState.swift */,
+				AAB3EBCC2F274633000635DF /* BonjourService.swift */,
+				AAB3EBCD2F274633000635DF /* LocalServer.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AAB3EBD52F274633000635DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AAB3EBEB2F27BF87000635DF /* FolderPicker.swift */,
+				AAB3EBCF2F274633000635DF /* DeviceRowView.swift */,
+				AAB3EBD02F274633000635DF /* HomeView.swift */,
+				AAB3EBD12F274633000635DF /* SettingsView.swift */,
+				AAB3EBD22F274633000635DF /* SharedFolderRowView.swift */,
+				AAB3EBD32F274633000635DF /* SharedFoldersView.swift */,
+				AAB3EBD42F274633000635DF /* SharesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AAB3EBD62F274633000635DF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AAB3EBE42F274A51000635DF /* CornerNASApp.swift */,
+				AAB3EBCB2F274633000635DF /* Models */,
+				AAB3EBCE2F274633000635DF /* Services */,
+				AAB3EBD52F274633000635DF /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AAB3EBB22F2743E0000635DF /* CornerNASApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AAB3EBBE2F2743E1000635DF /* Build configuration list for PBXNativeTarget "CornerNASApp" */;
+			buildPhases = (
+				AAB3EBAF2F2743E0000635DF /* Sources */,
+				AAB3EBB02F2743E0000635DF /* Frameworks */,
+				AAB3EBB12F2743E0000635DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CornerNASApp;
+			packageProductDependencies = (
+			);
+			productName = CornerNASApp;
+			productReference = AAB3EBB32F2743E0000635DF /* CornerNASApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AAB3EBAB2F2743E0000635DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					AAB3EBB22F2743E0000635DF = {
+						CreatedOnToolsVersion = 26.2;
+					};
+				};
+			};
+			buildConfigurationList = AAB3EBAE2F2743E0000635DF /* Build configuration list for PBXProject "CornerNAS" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = AAB3EBAA2F2743E0000635DF;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = AAB3EBB42F2743E0000635DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AAB3EBB22F2743E0000635DF /* CornerNASApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AAB3EBB12F2743E0000635DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAB3EBD82F274633000635DF /* InfoPlist.strings in Resources */,
+				AAB3EBD92F274633000635DF /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AAB3EBAF2F2743E0000635DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAB3EBEA2F27761A000635DF /* SharedFolderStore.swift in Sources */,
+				AAB3EBE82F275DF8000635DF /* AppState.swift in Sources */,
+				AAB3EBDA2F274633000635DF /* SharesView.swift in Sources */,
+				AAB3EBDB2F274633000635DF /* DeviceRowView.swift in Sources */,
+				AAB3EBDC2F274633000635DF /* SharedFolder.swift in Sources */,
+				AAB3EBDD2F274633000635DF /* SharedFoldersView.swift in Sources */,
+				AAB3EBDE2F274633000635DF /* SharedFolderRowView.swift in Sources */,
+				AAB3EBDF2F274633000635DF /* HomeView.swift in Sources */,
+				AAB3EBE02F274633000635DF /* DeviceInfo.swift in Sources */,
+				AAB3EBE52F274A51000635DF /* CornerNASApp.swift in Sources */,
+				AAB3EBE12F274633000635DF /* LocalServer.swift in Sources */,
+				AAB3EBEC2F27BF87000635DF /* FolderPicker.swift in Sources */,
+				AAB3EBE22F274633000635DF /* SettingsView.swift in Sources */,
+				AAB3EBEE2F27D020000635DF /* RemoteBrowserClient.swift in Sources */,
+				AAB3EBE32F274633000635DF /* BonjourService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AAB3EBC42F274633000635DF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAB3EBC22F274633000635DF /* Base */,
+				AAB3EBC32F274633000635DF /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AAB3EBC72F274633000635DF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAB3EBC52F274633000635DF /* en */,
+				AAB3EBC62F274633000635DF /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AAB3EBBC2F2743E1000635DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AAB3EBBD2F2743E1000635DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AAB3EBBF2F2743E1000635DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.peik.CornerNASApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AAB3EBC02F2743E1000635DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.peik.CornerNASApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAB3EBAE2F2743E0000635DF /* Build configuration list for PBXProject "CornerNAS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAB3EBBC2F2743E1000635DF /* Debug */,
+				AAB3EBBD2F2743E1000635DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AAB3EBBE2F2743E1000635DF /* Build configuration list for PBXNativeTarget "CornerNASApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AAB3EBBF2F2743E1000635DF /* Debug */,
+				AAB3EBC02F2743E1000635DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AAB3EBAB2F2743E0000635DF /* Project object */;
+}
