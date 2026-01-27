@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CornerNAS</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>CornerNAS</h1>
+      <p class="subtitle">Discover devices and manage shared files.</p>
+    </header>
+
+    <section class="panel">
+      <div class="row space-between">
+        <h2>Devices</h2>
+        <button id="scanButton" type="button">Scan</button>
+      </div>
+      <label class="field">
+        <span>IP / Subnet</span>
+        <input
+          id="subnetInput"
+          type="text"
+          placeholder="192.168.31.0/24 or 192.168.31.10"
+        />
+      </label>
+      <label class="field">
+        <span>Port(s)</span>
+        <input
+          id="portInput"
+          type="text"
+          placeholder="8000 or 10000-10999 or 8000,9000"
+        />
+      </label>
+      <div id="status" class="status">Idle.</div>
+      <ul id="deviceList" class="list"></ul>
+    </section>
+
+    <section class="panel" id="filesPanel">
+      <div class="row space-between">
+        <h2>Files</h2>
+        <div class="row">
+          <button id="upButton" type="button">Up</button>
+          <button id="refreshButton" type="button">Refresh</button>
+        </div>
+      </div>
+      <div id="filesHint" class="hint">
+        Select a device and open a folder to enable uploads and downloads.
+      </div>
+      <div id="currentPath" class="path">/</div>
+      <ul id="fileList" class="list"></ul>
+      <div class="row space-between upload-row">
+        <input id="fileInput" type="file" />
+        <button id="uploadButton" type="button">Upload</button>
+      </div>
+    </section>
+
+    <footer>
+      <small>Uses CornerNAS HTTP API.</small>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
